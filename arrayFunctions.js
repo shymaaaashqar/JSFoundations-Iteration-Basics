@@ -10,14 +10,18 @@
  */
 function getOdds(numbers) {
   // Your code here
-  const filterodd=numbers.filter(function(num){
-    return num%2==1;
- });
-  const sortNum= filterodd.sort(function(num2){
-       return num2;
-  });
-  return sortNum;
+  // const filterodd = numbers.filter(function (num) {
+  //   return num % 2 == 1;
+  // });
+  // const sortNum = filterodd.sort(function (num2) {
+  //   return num2;
+  // });
+  // return sortNum;
+  //*******arrow function:
+  const odds = numbers.filter((number) => number % 2 == 1);
+  return odds;
 }
+console.log(getOdds([1, 2, 3, 4, 5, 6, 7, 8, 9]));
 
 /**
  * getEvens(numbers):
@@ -31,14 +35,18 @@ function getOdds(numbers) {
  */
 function getEvens(numbers) {
   // Your code here
-  const filterEven=numbers.filter(function(num){
-    return num%2==0;
- });
-  var sortNum= filterEven.sort(function(numE){
-       return numE;
-  });
-  return sortNum;
+  // const filterEven = numbers.filter(function (num) {
+  //   return num % 2 == 0;
+  // });
+  // var sortNum = filterEven.sort(function (numE) {
+  //   return numE;
+  // });
+  // return sortNum;
+  //******Arrow function:
+  const even = numbers.filter((number) => number % 2 == 0);
+  return even;
 }
+console.log(getEvens([1, 2, 3, 4, 5, 6, 7, 8, 9]));
 
 /**
  * countOccurences(x, numbers):
@@ -51,14 +59,21 @@ function getEvens(numbers) {
  */
 function countOccurences(x, numbers) {
   // Your code here
-  let count=0;
-  var countArray=numbers.map(function(num){
-    if(x==num){
-       count++;
-    }
-  });
-    return count;
+  // let count = 0;
+  // var countArray = numbers.map(function (num) {
+  //   if (x == num) {
+  //     count++;
+  //   }
+  // });
+  // return count;
+  //*********Arrow function :
+  let count = 0;
+  let counter = numbers.map((number) => (number === x ? count++ : count));
+  return count;
 }
+console.log(
+  countOccurences(1, [1, 2, 3, 1, 4, 5, 6, 1, 7, 8, 9, 10, 11, 1, 12, 13])
+);
 
 /**
  * makeThemDoctors(students):
@@ -71,11 +86,15 @@ function countOccurences(x, numbers) {
 
 function makeThemDoctors(students) {
   // Your code here
-  const text="Dr. "
-   let doctors= students.map(function(student){
-      return text.concat(student);
-   })
-   return doctors;
+  // const text = "Dr. ";
+  // let doctors = students.map(function (student) {
+  //   return text.concat(student);
+  // });
+  // return doctors;
+  //********** Arrow function :
+  const names = students.map((student) => `Dr. ${student}`);
+  return names;
 }
+console.log(makeThemDoctors(["Ali", "Aseel", "Richard"]));
 
 module.exports = { getOdds, getEvens, countOccurences, makeThemDoctors };
